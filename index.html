@@ -6,17 +6,17 @@
 
 <title>BOP HAVEN</title>
 
-<!-- Sadece butonlar için font -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 
 <style>
 
 /* ===== GENEL ===== */
 body{
 margin:0;
-background: linear-gradient(135deg,#0f0f0f,#1a1a1a);
+background: radial-gradient(circle at top,#1a1a1a,#0d0d0d 70%);
 color:white;
-font-family: Arial, sans-serif; /* Başlık eski fontta kaldı */
+font-family: 'Orbitron', sans-serif;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -27,36 +27,44 @@ height:100vh;
 .container{
 text-align:center;
 width:90%;
-max-width:400px;
+max-width:420px;
+animation:fadeIn 1s ease-in-out;
 }
 
-/* ===== BAŞLIK (DEĞİŞMEDİ) ===== */
+/* ===== BAŞLIK ===== */
 h1{
-font-size:32px;
-margin-bottom:10px;
-letter-spacing:2px;
+font-size:48px;
+font-weight:900;
+letter-spacing:4px;
+margin-bottom:15px;
+color:white;
+text-shadow:
+0 0 10px #ffffff,
+0 0 20px #5865F2,
+0 0 40px #5865F2;
 }
 
 /* ===== ALT YAZI ===== */
 p{
-opacity:0.7;
-margin-bottom:30px;
+font-size:18px;
+opacity:0.75;
+margin-bottom:35px;
 }
 
 /* ===== BUTON GENEL ===== */
 .button{
 display:block;
 width:100%;
-padding:15px;
-margin:15px 0;
-font-size:18px; /* BOYUT AYNI */
+padding:18px;
+margin:18px 0;
+font-size:20px;
+font-weight:700;
 border:none;
-border-radius:12px;
+border-radius:14px;
 cursor:pointer;
 transition: all 0.3s ease;
 text-decoration:none;
 color:white;
-font-family:'Orbitron', sans-serif; /* SADECE BURASI DEĞİŞTİ */
 }
 
 /* ===== DISCORD ===== */
@@ -65,8 +73,8 @@ background:#5865F2;
 box-shadow:0 0 15px #5865F2;
 }
 .discord:hover{
-box-shadow:0 0 25px #5865F2,0 0 40px #5865F2;
-transform:translateY(-3px);
+box-shadow:0 0 30px #5865F2,0 0 60px #5865F2;
+transform:translateY(-4px) scale(1.03);
 }
 
 /* ===== TELEGRAM ===== */
@@ -75,8 +83,8 @@ background:#229ED9;
 box-shadow:0 0 15px #229ED9;
 }
 .telegram:hover{
-box-shadow:0 0 25px #229ED9,0 0 40px #229ED9;
-transform:translateY(-3px);
+box-shadow:0 0 30px #229ED9,0 0 60px #229ED9;
+transform:translateY(-4px) scale(1.03);
 }
 
 /* ===== MEGALL ===== */
@@ -85,8 +93,14 @@ background:#ff0066;
 box-shadow:0 0 15px #ff0066;
 }
 .megall:hover{
-box-shadow:0 0 25px #ff0066,0 0 40px #ff0066;
-transform:translateY(-3px);
+box-shadow:0 0 30px #ff0066,0 0 60px #ff0066;
+transform:translateY(-4px) scale(1.03);
+}
+
+/* ===== ANİMASYON ===== */
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(30px);}
+to{opacity:1; transform:translateY(0);}
 }
 
 </style>
@@ -104,11 +118,11 @@ transform:translateY(-3px);
 </a>
 
 <a class="button discord" href="https://discord.gg/qGp4u9yrq7">
-Join Discord
+D!SC0RD 💋 TO ACCESS CONTENT!💋
 </a>
 
 <a class="button telegram" href="https://t.me/+uAUhExWvjblmNzY0">
-T£L£GRAM 🔥TO ACCESS CONTENT!🔥
+T£L£GRAM 🔥 TO ACCESS CONTENT 🔥
 </a>
 
 <a class="button telegram" href="https://t.me/+kjYAJ1xI0DYwNzJl">
