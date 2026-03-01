@@ -1,51 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>BOP HAVEN</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOP HAVEN</title>
+
 <style>
+
+/* ===== GENEL AYAR ===== */
 body{
-background:#0f0f0f;
+margin:0;
+background: linear-gradient(135deg,#0f0f0f,#1a1a1a);
 color:white;
-font-family:Arial;
-text-align:center;
-padding-top:100px;
+font-family: Arial, sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
-button{
+
+/* ===== ANA KUTU ===== */
+.container{
+text-align:center;
+width:90%;
+max-width:400px;
+}
+
+/* ===== BAŞLIK ===== */
+h1{
+font-size:32px;
+margin-bottom:10px;
+letter-spacing:2px;
+}
+
+/* ===== ALT YAZI ===== */
+p{
+opacity:0.7;
+margin-bottom:30px;
+}
+
+/* ===== BUTON GENEL ===== */
+.button{
 display:block;
-width:300px;
-padding:15px 30px;
-margin:15px auto;
+width:100%;
+padding:15px;
+margin:15px 0;
 font-size:18px;
 border:none;
-border-radius:8px;
+border-radius:12px;
 cursor:pointer;
+transition: all 0.3s ease;
+text-decoration:none;
+color:white;
 }
-.discord{background:#5865F2;color:white;}
-.telegram{background:#229ED9;color:white;}
+
+/* ===== DISCORD ===== */
+.discord{
+background:#5865F2;
+box-shadow:0 0 15px #5865F2;
+}
+.discord:hover{
+box-shadow:0 0 25px #5865F2,0 0 40px #5865F2;
+transform:translateY(-3px);
+}
+
+/* ===== TELEGRAM ===== */
+.telegram{
+background:#229ED9;
+box-shadow:0 0 15px #229ED9;
+}
+.telegram:hover{
+box-shadow:0 0 25px #229ED9,0 0 40px #229ED9;
+transform:translateY(-3px);
+}
+
+/* ===== MEGALL ===== */
+.megall{
+background:#ff0066;
+box-shadow:0 0 15px #ff0066;
+}
+.megall:hover{
+box-shadow:0 0 25px #ff0066,0 0 40px #ff0066;
+transform:translateY(-3px);
+}
+
+/* ===== GİRİŞ ANİMASYONU ===== */
+.container{
+animation:fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
 </style>
 </head>
+
 <body>
+
+<div class="container">
 
 <h1>BOP HAVEN</h1>
 <p>Official Links</p>
 
-<button class="megall" onclick="window.location.href='https://link-target.net/989364/megall'">
+<a class="button megall" href="https://link-target.net/989364/megall">
 🥵 +600 FULL L£AKS C0LL€CTION 🥵
-</button>
+</a>
 
-<button class="discord" onclick="window.location.href='https://discord.gg/qGp4u9yrq7'">
+<a class="button discord" href="https://discord.gg/qGp4u9yrq7">
 Join Discord
-</button>
+</a>
 
-<button class="telegram" onclick="window.location.href='https://t.me/+uAUhExWvjblmNzY0'">
+<a class="button telegram" href="https://t.me/+uAUhExWvjblmNzY0">
 T£L£GRAM 🔥TO ACCESS CONTENT!🔥
-</button>
+</a>
 
-<button class="telegram" onclick="window.location.href='https://t.me/+kjYAJ1xI0DYwNzJl'">
+<a class="button telegram" href="https://t.me/+kjYAJ1xI0DYwNzJl">
 BACKUP TELEGRAM
-</button>
+</a>
+
+</div>
 
 </body>
 </html>
