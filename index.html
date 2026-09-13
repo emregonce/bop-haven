@@ -7,7 +7,8 @@
 <title>BOP HAVEN</title>
 <link rel="icon" type="image/png" href="logo.jpg">
 
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<!-- Orbitron Fontu Eklendi -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -32,7 +33,7 @@ radial-gradient(circle at 80% 75%,rgba(0,210,255,.12),transparent 32%),
 linear-gradient(135deg,#05020a,#090611 45%,#02070d);
 
 color:#fff;
-font-family:'Rajdhani',sans-serif;
+font-family:'Orbitron', sans-serif;
 
 display:flex;
 justify-content:center;
@@ -220,16 +221,16 @@ filter:blur(1px);
 
 
 /* =========================================================
-   TITLE
+   TITLE (Büyütüldü & Mor-Pembe Glow Efekti Uygulandı)
 ========================================================= */
 
 h1{
 margin:0 0 12px;
 
-font-size:58px;
-font-weight:700;
+font-size:68px; /* 58px'den 68px'e büyütüldü */
+font-weight:900;
 
-letter-spacing:9px;
+letter-spacing:6px;
 
 color:#fff;
 
@@ -237,10 +238,10 @@ position:relative;
 
 text-shadow:
 0 0 5px #fff,
-0 0 12px #fff,
-0 0 25px #ff2bd6,
-0 0 45px #ff00aa,
-0 0 80px #7b00ff;
+0 0 12px #ff77e9,
+0 0 25px #ff00aa,
+0 0 45px #b000ff,
+0 0 80px #7000ff;
 
 animation:
 titlePulse 3s ease-in-out infinite alternate;
@@ -265,14 +266,14 @@ background:
 linear-gradient(
 90deg,
 transparent,
-#ff2bd6,
-#00e5ff,
+#ff00aa,
+#b000ff,
 transparent
 );
 
 box-shadow:
-0 0 8px #ff2bd6,
-0 0 18px #00e5ff;
+0 0 8px #ff00aa,
+0 0 18px #b000ff;
 
 animation:linePulse 2.5s ease-in-out infinite alternate;
 }
@@ -286,7 +287,7 @@ p{
 margin:22px 0 38px;
 
 font-size:15px;
-font-weight:600;
+font-weight:700;
 
 letter-spacing:6px;
 
@@ -317,7 +318,7 @@ padding:18px 24px;
 
 margin:15px 0;
 
-font-size:19px;
+font-size:16px;
 font-weight:700;
 
 letter-spacing:.7px;
@@ -515,7 +516,7 @@ inset 0 0 25px rgba(255,255,255,.18);
 
 
 /* =========================================================
-   TITLE ANIMATION
+   TITLE ANIMATION (Mor - Pembe Animasyon)
 ========================================================= */
 
 @keyframes titlePulse{
@@ -523,19 +524,19 @@ inset 0 0 25px rgba(255,255,255,.18);
 0%{
 text-shadow:
 0 0 5px #fff,
-0 0 12px #fff,
-0 0 25px #ff2bd6,
-0 0 45px #ff00aa,
-0 0 70px #7b00ff;
+0 0 12px #ff77e9,
+0 0 25px #ff00aa,
+0 0 45px #b000ff,
+0 0 70px #7000ff;
 }
 
 100%{
 text-shadow:
-0 0 6px #fff,
-0 0 15px #fff,
-0 0 25px #00e5ff,
-0 0 50px #00c6ff,
-0 0 85px #7b00ff;
+0 0 8px #fff,
+0 0 18px #ff2bd6,
+0 0 30px #d800ff,
+0 0 55px #9400ff,
+0 0 90px #ff0080;
 }
 
 }
@@ -723,8 +724,8 @@ border-radius:22px;
 }
 
 h1{
-font-size:43px;
-letter-spacing:6px;
+font-size:48px;
+letter-spacing:4px;
 }
 
 p{
@@ -734,7 +735,7 @@ margin-bottom:30px;
 }
 
 .button{
-font-size:16px;
+font-size:14px;
 min-height:65px;
 padding:15px 17px;
 }
@@ -754,7 +755,7 @@ padding-bottom:25px;
 }
 
 h1{
-font-size:45px;
+font-size:50px;
 }
 
 p{
