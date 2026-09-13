@@ -1,218 +1,801 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>BOP HAVEN</title>
+<link rel="icon" type="image/png" href="logo.jpg">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 *{
 box-sizing:border-box;
+}
+
+html,body{
 margin:0;
-padding:0;
+width:100%;
+height:100%;
 }
 
 body{
+background:
+radial-gradient(circle at 20% 20%,rgba(255,0,170,.13),transparent 30%),
+radial-gradient(circle at 80% 75%,rgba(0,210,255,.12),transparent 32%),
+linear-gradient(135deg,#05020a,#090611 45%,#02070d);
 
-background:#05000f;
-
-color:white;
-
-font-family:'Orbitron',sans-serif;
-
-min-height:100vh;
+color:#fff;
+font-family:'Rajdhani',sans-serif;
 
 display:flex;
-
 justify-content:center;
-
 align-items:center;
+
+min-height:100vh;
+overflow:hidden;
+
+position:relative;
+}
+
+
+/* =========================================================
+   ANIMATED LIGHT ORBS
+========================================================= */
+
+body::before{
+content:"";
+position:fixed;
+
+width:650px;
+height:650px;
+
+left:-280px;
+top:-260px;
+
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(255,0,170,.25) 0%,
+rgba(255,0,170,.08) 35%,
+transparent 70%
+);
+
+filter:blur(20px);
+
+animation:
+orbOne 12s ease-in-out infinite alternate;
+
+pointer-events:none;
+}
+
+
+body::after{
+content:"";
+position:fixed;
+
+width:700px;
+height:700px;
+
+right:-300px;
+bottom:-300px;
+
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(0,220,255,.22) 0%,
+rgba(0,220,255,.06) 38%,
+transparent 70%
+);
+
+filter:blur(25px);
+
+animation:
+orbTwo 15s ease-in-out infinite alternate;
+
+pointer-events:none;
+}
+
+
+/* =========================================================
+   MOVING LIGHT STREAKS
+========================================================= */
+
+.light{
+position:fixed;
+width:600px;
+height:2px;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,0,200,.7),
+transparent
+);
+
+filter:blur(2px);
+
+opacity:.35;
+
+pointer-events:none;
+
+transform:rotate(-28deg);
+
+animation:lightMove 9s linear infinite;
+}
+
+.light.one{
+top:18%;
+left:-650px;
+}
+
+.light.two{
+top:65%;
+left:-750px;
+animation-delay:4s;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(0,220,255,.7),
+transparent
+);
+}
+
+
+/* =========================================================
+   MAIN GLASS PANEL
+========================================================= */
+
+.container{
+position:relative;
+z-index:10;
+
+width:90%;
+max-width:520px;
+
+padding:48px 42px 42px;
 
 text-align:center;
 
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.075),
+rgba(255,255,255,.025)
+);
+
+border:1px solid rgba(255,255,255,.13);
+
+border-radius:28px;
+
+backdrop-filter:blur(24px);
+-webkit-backdrop-filter:blur(24px);
+
+box-shadow:
+0 30px 100px rgba(0,0,0,.65),
+inset 0 1px rgba(255,255,255,.12),
+0 0 80px rgba(150,0,255,.08);
+
+animation:panelAppear 1s cubic-bezier(.16,1,.3,1);
 }
 
-.container{
 
-width:90%;
+/* =========================================================
+   PANEL NEON BORDER
+========================================================= */
 
-max-width:600px;
+.container::before{
+content:"";
 
-animation:fadeIn 1s ease;
+position:absolute;
+inset:-1px;
 
+border-radius:28px;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,0,190,.55),
+transparent 30%,
+transparent 65%,
+rgba(0,220,255,.5)
+);
+
+opacity:.45;
+
+z-index:-1;
+
+filter:blur(1px);
 }
+
+
+/* =========================================================
+   TITLE
+========================================================= */
 
 h1{
+margin:0 0 12px;
 
-font-size:48px;
+font-size:58px;
+font-weight:700;
 
-font-weight:900;
+letter-spacing:9px;
 
-letter-spacing:4px;
+color:#fff;
 
-margin-bottom:15px;
-
-color:white;
+position:relative;
 
 text-shadow:
+0 0 5px #fff,
+0 0 12px #fff,
+0 0 25px #ff2bd6,
+0 0 45px #ff00aa,
+0 0 80px #7b00ff;
 
-0 0 10px #ffffff,
-
-0 0 20px #5865F2,
-
-0 0 40px #5865F2;
-
+animation:
+titlePulse 3s ease-in-out infinite alternate;
 }
 
-p{
 
-font-size:18px;
+/* =========================================================
+   TITLE UNDERLINE
+========================================================= */
 
-opacity:0.75;
-
-margin-bottom:35px;
-
-}
-
-.button{
+h1::after{
+content:"";
 
 display:block;
 
+width:110px;
+height:2px;
+
+margin:18px auto 0;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+#ff2bd6,
+#00e5ff,
+transparent
+);
+
+box-shadow:
+0 0 8px #ff2bd6,
+0 0 18px #00e5ff;
+
+animation:linePulse 2.5s ease-in-out infinite alternate;
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+p{
+margin:22px 0 38px;
+
+font-size:15px;
+font-weight:600;
+
+letter-spacing:6px;
+
+color:#d9d9e7;
+
+text-transform:uppercase;
+
+text-shadow:
+0 0 8px rgba(255,255,255,.35);
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.button{
+display:flex;
+
+align-items:center;
+justify-content:center;
+
 width:100%;
 
-padding:18px;
+min-height:68px;
 
-margin:18px 0;
+padding:18px 24px;
 
-font-size:20px;
+margin:15px 0;
 
+font-size:19px;
 font-weight:700;
 
-border:none;
+letter-spacing:.7px;
 
-border-radius:14px;
+border-radius:15px;
 
 cursor:pointer;
 
-transition:all 0.3s ease;
-
 text-decoration:none;
 
-color:white;
+color:#fff;
 
+position:relative;
+
+overflow:hidden;
+
+border:1px solid rgba(255,255,255,.16);
+
+transition:
+transform .35s cubic-bezier(.16,1,.3,1),
+box-shadow .35s ease,
+border-color .35s ease;
+
+isolation:isolate;
 }
 
+
+/* =========================================================
+   MOVING SHINE
+========================================================= */
+
+.button::before{
+content:"";
+
+position:absolute;
+
+top:-100%;
+left:-60%;
+
+width:45%;
+height:300%;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.4),
+transparent
+);
+
+transform:rotate(25deg);
+
+transition:1s;
+
+z-index:-1;
+}
+
+.button:hover::before{
+left:120%;
+}
+
+
+/* =========================================================
+   INNER GLOW
+========================================================= */
+
+.button::after{
+content:"";
+
+position:absolute;
+inset:0;
+
+border-radius:inherit;
+
+background:
+linear-gradient(
+120deg,
+transparent 20%,
+rgba(255,255,255,.10),
+transparent 80%
+);
+
+opacity:.5;
+
+pointer-events:none;
+}
+
+
+/* =========================================================
+   DISCORD
+========================================================= */
+
 .discord{
+background:
+linear-gradient(
+135deg,
+#5146e5,
+#5865f2 45%,
+#806cff
+);
 
-background:#5865F2;
+box-shadow:
+0 0 15px rgba(88,101,242,.65),
+0 0 35px rgba(88,101,242,.3),
+inset 0 1px rgba(255,255,255,.3);
 
-box-shadow:0 0 15px #5865F2;
-
+animation:discordGlow 4s ease-in-out infinite alternate;
 }
 
 .discord:hover{
+transform:
+translateY(-5px)
+scale(1.025);
+
+border-color:#aaa8ff;
 
 box-shadow:
-
-0 0 30px #5865F2,
-
-0 0 60px #5865F2;
-
-transform:translateY(-4px) scale(1.03);
-
+0 0 20px #5865f2,
+0 0 45px #5865f2,
+0 0 90px rgba(88,101,242,.65),
+inset 0 0 25px rgba(255,255,255,.18);
 }
 
+
+/* =========================================================
+   TELEGRAM
+========================================================= */
+
 .telegram{
+background:
+linear-gradient(
+135deg,
+#008fd0,
+#229ed9 45%,
+#00d9ff
+);
 
-background:#229ED9;
+box-shadow:
+0 0 15px rgba(0,198,255,.6),
+0 0 35px rgba(0,198,255,.25),
+inset 0 1px rgba(255,255,255,.3);
 
-box-shadow:0 0 15px #229ED9;
-
+animation:telegramGlow 4s ease-in-out infinite alternate;
 }
 
 .telegram:hover{
+transform:
+translateY(-5px)
+scale(1.025);
+
+border-color:#83eaff;
 
 box-shadow:
-
-0 0 30px #229ED9,
-
-0 0 60px #229ED9;
-
-transform:translateY(-4px) scale(1.03);
-
+0 0 20px #00c6ff,
+0 0 45px #229ed9,
+0 0 90px rgba(0,229,255,.65),
+inset 0 0 25px rgba(255,255,255,.18);
 }
 
+
+/* =========================================================
+   MEGALL
+========================================================= */
+
 .megall{
+background:
+linear-gradient(
+135deg,
+#d60072,
+#ff0066 45%,
+#a000ff
+);
 
-background:#ff0066;
+box-shadow:
+0 0 15px rgba(255,0,102,.7),
+0 0 35px rgba(255,0,102,.3),
+inset 0 1px rgba(255,255,255,.3);
 
-box-shadow:0 0 15px #ff0066;
-
+animation:megallGlow 4s ease-in-out infinite alternate;
 }
 
 .megall:hover{
+transform:
+translateY(-5px)
+scale(1.025);
+
+border-color:#ff8ac6;
 
 box-shadow:
+0 0 20px #ff1493,
+0 0 45px #ff0066,
+0 0 90px rgba(255,0,102,.7),
+inset 0 0 25px rgba(255,255,255,.18);
+}
 
-0 0 30px #ff0066,
 
-0 0 60px #ff0066;
+/* =========================================================
+   TITLE ANIMATION
+========================================================= */
 
-transform:translateY(-4px) scale(1.03);
+@keyframes titlePulse{
+
+0%{
+text-shadow:
+0 0 5px #fff,
+0 0 12px #fff,
+0 0 25px #ff2bd6,
+0 0 45px #ff00aa,
+0 0 70px #7b00ff;
+}
+
+100%{
+text-shadow:
+0 0 6px #fff,
+0 0 15px #fff,
+0 0 25px #00e5ff,
+0 0 50px #00c6ff,
+0 0 85px #7b00ff;
+}
 
 }
 
-@keyframes fadeIn{
+
+/* =========================================================
+   LINE ANIMATION
+========================================================= */
+
+@keyframes linePulse{
+
+0%{
+width:80px;
+opacity:.55;
+}
+
+100%{
+width:150px;
+opacity:1;
+}
+
+}
+
+
+/* =========================================================
+   BUTTON GLOWS
+========================================================= */
+
+@keyframes discordGlow{
+
+0%{
+box-shadow:
+0 0 12px rgba(88,101,242,.45),
+0 0 30px rgba(88,101,242,.18);
+}
+
+100%{
+box-shadow:
+0 0 22px rgba(88,101,242,.75),
+0 0 45px rgba(88,101,242,.35);
+}
+
+}
+
+@keyframes telegramGlow{
+
+0%{
+box-shadow:
+0 0 12px rgba(0,198,255,.4),
+0 0 30px rgba(0,198,255,.15);
+}
+
+100%{
+box-shadow:
+0 0 22px rgba(0,229,255,.7),
+0 0 45px rgba(0,198,255,.3);
+}
+
+}
+
+@keyframes megallGlow{
+
+0%{
+box-shadow:
+0 0 12px rgba(255,0,102,.45),
+0 0 30px rgba(255,0,102,.18);
+}
+
+100%{
+box-shadow:
+0 0 22px rgba(255,0,102,.8),
+0 0 45px rgba(255,0,102,.35);
+}
+
+}
+
+
+/* =========================================================
+   BACKGROUND ANIMATIONS
+========================================================= */
+
+@keyframes orbOne{
+
+0%{
+transform:translate(0,0) scale(1);
+}
+
+50%{
+transform:translate(180px,120px) scale(1.25);
+}
+
+100%{
+transform:translate(50px,300px) scale(.9);
+}
+
+}
+
+
+@keyframes orbTwo{
+
+0%{
+transform:translate(0,0) scale(1);
+}
+
+50%{
+transform:translate(-160px,-120px) scale(1.2);
+}
+
+100%{
+transform:translate(-50px,-280px) scale(.9);
+}
+
+}
+
+
+@keyframes lightMove{
+
+0%{
+transform:
+translateX(0)
+rotate(-28deg);
+opacity:0;
+}
+
+10%{
+opacity:.4;
+}
+
+50%{
+opacity:.5;
+}
+
+90%{
+opacity:.2;
+}
+
+100%{
+transform:
+translateX(1700px)
+rotate(-28deg);
+opacity:0;
+}
+
+}
+
+
+/* =========================================================
+   PANEL ENTRY
+========================================================= */
+
+@keyframes panelAppear{
 
 from{
-
 opacity:0;
-
-transform:translateY(30px);
-
+transform:
+translateY(35px)
+scale(.96);
+filter:blur(8px);
 }
 
 to{
-
 opacity:1;
+transform:
+translateY(0)
+scale(1);
+filter:blur(0);
+}
 
-transform:translateY(0);
+}
 
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+body{
+padding:20px;
+}
+
+.container{
+padding:38px 22px 32px;
+border-radius:22px;
+}
+
+h1{
+font-size:43px;
+letter-spacing:6px;
+}
+
+p{
+font-size:12px;
+letter-spacing:4px;
+margin-bottom:30px;
+}
+
+.button{
+font-size:16px;
+min-height:65px;
+padding:15px 17px;
+}
+
+}
+
+
+/* =========================================================
+   SMALL HEIGHT SCREENS
+========================================================= */
+
+@media(max-height:700px){
+
+.container{
+padding-top:28px;
+padding-bottom:25px;
+}
+
+h1{
+font-size:45px;
+}
+
+p{
+margin-bottom:25px;
+}
+
+.button{
+min-height:58px;
+margin:10px 0;
 }
 
 }
 
 </style>
-
 </head>
 
 <body>
+
+<div class="light one"></div>
+<div class="light two"></div>
 
 <div class="container">
 
 <h1>BOP HAVEN</h1>
 
-<p>Choose your platform</p>
+<p>OFFICIAL LINKS</p>
 
-<a href="https://link-target.net/989364/megall" class="button megall">
-🥵 +600 FULL L£AKS C0LL€CTION 🥵
+<a class="button megall" href="https://link-target.net/989364/megall">
+🥵 +600 M0DELS FULL L£AKS C0LL€CTION 🥵
 </a>
 
-<a href="https://discord.gg/qGp4u9yrq7" class="button discord">
+<a class="button discord" href="https://discord.gg/BfENsFPD5G">
 D!SC0RD 💋 TO ACCESS CONTENT!💋
 </a>
 
-<a href="https://t.me/+uAUhExWvjblmNzY0" class="button telegram">
+<a class="button telegram" href="https://t.me/+kjYAJ1xI0DYwNzJl">
 T£L£GRAM 🔥 TO ACCESS CONTENT 🔥
 </a>
 
-<a href="https://t.me/+kjYAJ1xI0DYwNzJl" class="button telegram">
-BACKUP TELEGRAM
+<a class="button telegram" href="https://t.me/+GjbWe6Z1P2k4YTI0">
+🫦 PREMIUM ACCESS — 100% AD-FREE TELEGRAM! 🫦
 </a>
 
 </div>
