@@ -7,7 +7,6 @@
 <title>BOP HAVEN</title>
 <link rel="icon" type="image/png" href="logo.jpg">
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -16,84 +15,258 @@
 body{
 margin:0;
 background:
-linear-gradient(rgba(5,0,15,0.72),rgba(5,0,15,0.84)),
-url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1920&q=90");
+linear-gradient(
+rgba(5,0,20,0.30),
+rgba(5,0,25,0.55)
+),
+url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1920&q=90");
+
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
+
 color:white;
 font-family:'Rajdhani',sans-serif;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 height:100vh;
 overflow:hidden;
+
 position:relative;
 }
 
-/* ===== YAĞMUR EFEKTİ ===== */
+/* ===== ŞİMŞEK IŞIĞI ===== */
 body::before{
 content:"";
 position:absolute;
-inset:-100%;
+inset:0;
+
+background:
+radial-gradient(
+ellipse at 70% 20%,
+rgba(255,255,255,0.9),
+rgba(160,120,255,0.35) 8%,
+transparent 25%
+);
+
+opacity:0;
 pointer-events:none;
 z-index:1;
 
-background-image:
-repeating-linear-gradient(
-105deg,
-transparent 0px,
-transparent 8px,
-rgba(255,255,255,0.10) 9px,
-rgba(255,255,255,0.10) 10px,
-transparent 11px,
-transparent 35px
-);
-
-background-size:80px 140px;
-animation:rainFall 0.55s linear infinite;
-opacity:0.45;
+animation:lightningFlash 7s infinite;
 }
 
-/* Daha yoğun ikinci yağmur katmanı */
+/* İKİNCİ ŞİMŞEK IŞIĞI */
 body::after{
 content:"";
 position:absolute;
-inset:-100%;
-pointer-events:none;
-z-index:2;
+inset:0;
 
-background-image:
-repeating-linear-gradient(
-105deg,
-transparent 0px,
-transparent 18px,
-rgba(180,140,255,0.13) 19px,
-rgba(255,120,220,0.13) 20px,
-transparent 21px,
-transparent 55px
+background:
+radial-gradient(
+ellipse at 30% 15%,
+rgba(255,255,255,0.8),
+rgba(100,150,255,0.3) 8%,
+transparent 22%
 );
 
-background-size:120px 180px;
-animation:rainFall 0.9s linear infinite;
-opacity:0.55;
+opacity:0;
+pointer-events:none;
+z-index:1;
+
+animation:lightningFlash2 11s infinite;
 }
 
-@keyframes rainFall{
-0%{
-transform:translateY(-80px);
+/* ===== ŞİMŞEK FLASH ===== */
+@keyframes lightningFlash{
+
+0%, 18%, 100%{
+opacity:0;
 }
-100%{
-transform:translateY(180px);
+
+19%{
+opacity:0.05;
 }
+
+19.5%{
+opacity:0.85;
+}
+
+20%{
+opacity:0.05;
+}
+
+20.5%{
+opacity:0.65;
+}
+
+21%{
+opacity:0;
+}
+
+}
+
+/* ===== İKİNCİ FLASH ===== */
+@keyframes lightningFlash2{
+
+0%, 48%, 100%{
+opacity:0;
+}
+
+49%{
+opacity:0.05;
+}
+
+49.5%{
+opacity:0.75;
+}
+
+50%{
+opacity:0;
+}
+
+50.4%{
+opacity:0.5;
+}
+
+51%{
+opacity:0;
+}
+
+}
+
+/* ===== ŞİMŞEK ÇİZGİLERİ ===== */
+.lightning{
+position:absolute;
+top:0;
+left:50%;
+
+width:3px;
+height:270px;
+
+background:linear-gradient(
+to bottom,
+rgba(255,255,255,0.95),
+rgba(190,150,255,0.8),
+transparent
+);
+
+filter:
+drop-shadow(0 0 5px white)
+drop-shadow(0 0 15px #9d6cff)
+drop-shadow(0 0 30px #6c3cff);
+
+transform:rotate(15deg) skewX(-20deg);
+
+opacity:0;
+z-index:2;
+
+animation:boltFlash 7s infinite;
+}
+
+.lightning::before{
+content:"";
+position:absolute;
+
+top:70px;
+left:-45px;
+
+width:90px;
+height:200px;
+
+border-left:3px solid rgba(255,255,255,0.9);
+border-bottom:3px solid rgba(255,255,255,0.8);
+
+transform:skewX(25deg);
+}
+
+.lightning2{
+position:absolute;
+top:0;
+left:72%;
+
+width:3px;
+height:220px;
+
+background:linear-gradient(
+to bottom,
+rgba(255,255,255,0.95),
+rgba(130,180,255,0.7),
+transparent
+);
+
+filter:
+drop-shadow(0 0 6px white)
+drop-shadow(0 0 18px #4d8cff);
+
+transform:rotate(-12deg);
+
+opacity:0;
+z-index:2;
+
+animation:boltFlash2 11s infinite;
+}
+
+@keyframes boltFlash{
+
+0%,18%,100%{
+opacity:0;
+}
+
+19%{
+opacity:1;
+}
+
+19.5%{
+opacity:0;
+}
+
+20%{
+opacity:0.9;
+}
+
+20.5%{
+opacity:0;
+}
+
+}
+
+@keyframes boltFlash2{
+
+0%,48%,100%{
+opacity:0;
+}
+
+49%{
+opacity:1;
+}
+
+49.5%{
+opacity:0;
+}
+
+50%{
+opacity:0.8;
+}
+
+51%{
+opacity:0;
+}
+
 }
 
 /* ===== ANA KUTU ===== */
 .container{
 text-align:center;
+
 width:90%;
 max-width:420px;
+
 animation:fadeIn 1s ease-in-out;
+
 position:relative;
 z-index:5;
 }
@@ -103,6 +276,7 @@ h1{
 font-size:58px;
 font-weight:700;
 letter-spacing:8px;
+
 margin-bottom:15px;
 
 background:linear-gradient(
@@ -115,8 +289,10 @@ background:linear-gradient(
 );
 
 background-size:300% 300%;
+
 -webkit-background-clip:text;
 background-clip:text;
+
 -webkit-text-fill-color:transparent;
 
 text-shadow:
@@ -136,45 +312,63 @@ p{
 font-size:18px;
 font-weight:600;
 letter-spacing:3px;
+
 opacity:0.85;
+
 margin-bottom:35px;
+
 color:#e8dfff;
 }
 
 /* ===== BUTON GENEL ===== */
 .button{
 display:block;
+
 width:100%;
+
 padding:18px;
 margin:18px 0;
+
 font-size:20px;
 font-weight:700;
+
 letter-spacing:1px;
+
 border:none;
 border-radius:14px;
+
 cursor:pointer;
+
 transition:all 0.3s ease;
+
 text-decoration:none;
 color:white;
+
 position:relative;
 overflow:hidden;
 }
 
-/* ===== FLOW EFEKTİ ===== */
+/* ===== BUTON IŞIK AKIŞI ===== */
 .button::before{
 content:"";
+
 position:absolute;
+
 top:0;
 left:-120%;
+
 width:80%;
 height:100%;
+
 background:linear-gradient(
 90deg,
 transparent,
 rgba(255,255,255,0.35),
 transparent
 );
+
 transform:skewX(-25deg);
+
 transition:0.7s;
 }
 
@@ -184,11 +378,19 @@ left:140%;
 
 /* ===== DISCORD ===== */
 .discord{
-background:linear-gradient(135deg,#7b61ff,#5865f2,#8f7aff);
+background:linear-gradient(
+135deg,
+#7b61ff,
+#5865f2,
+#8f7aff
+);
+
 background-size:200% 200%;
+
 box-shadow:
 0 0 15px #5865F2,
 0 0 35px rgba(88,101,242,0.35);
+
 animation:gradientFlow 4s ease infinite;
 }
 
@@ -197,16 +399,25 @@ box-shadow:
 0 0 25px #7b61ff,
 0 0 50px #5865F2,
 0 0 80px rgba(123,97,255,0.5);
+
 transform:translateY(-4px) scale(1.03);
 }
 
 /* ===== TELEGRAM ===== */
 .telegram{
-background:linear-gradient(135deg,#00c6ff,#229ed9,#00e5ff);
+background:linear-gradient(
+135deg,
+#00c6ff,
+#229ed9,
+#00e5ff
+);
+
 background-size:200% 200%;
+
 box-shadow:
 0 0 15px #229ED9,
 0 0 35px rgba(0,198,255,0.35);
+
 animation:gradientFlow 4s ease infinite;
 }
 
@@ -215,16 +426,25 @@ box-shadow:
 0 0 25px #00c6ff,
 0 0 50px #229ED9,
 0 0 80px rgba(0,198,255,0.5);
+
 transform:translateY(-4px) scale(1.03);
 }
 
 /* ===== MEGALL ===== */
 .megall{
-background:linear-gradient(135deg,#ff008c,#ff0066,#b000ff);
+background:linear-gradient(
+135deg,
+#ff008c,
+#ff0066,
+#b000ff
+);
+
 background-size:200% 200%;
+
 box-shadow:
 0 0 15px #ff0066,
 0 0 35px rgba(255,0,102,0.4);
+
 animation:gradientFlow 4s ease infinite;
 }
 
@@ -233,57 +453,73 @@ box-shadow:
 0 0 25px #ff1493,
 0 0 50px #ff0066,
 0 0 80px rgba(255,0,102,0.55);
+
 transform:translateY(-4px) scale(1.03);
 }
 
-/* ===== RENK FLOW ===== */
+/* ===== BUTON RENK ANİMASYONU ===== */
 @keyframes gradientFlow{
+
 0%{
 background-position:0% 50%;
 }
+
 50%{
 background-position:100% 50%;
 }
+
 100%{
 background-position:0% 50%;
 }
+
 }
 
 /* ===== BAŞLIK RENK AKIŞI ===== */
 @keyframes titleFlow{
+
 0%{
 background-position:0% 50%;
 }
+
 50%{
 background-position:100% 50%;
 }
+
 100%{
 background-position:0% 50%;
 }
+
 }
 
 /* ===== BAŞLIK GLOW ===== */
 @keyframes titleGlow{
+
 0%{
-filter:drop-shadow(0 0 8px rgba(255,0,170,0.7));
+filter:
+drop-shadow(0 0 8px rgba(255,0,170,0.7));
 }
+
 100%{
 filter:
 drop-shadow(0 0 15px rgba(255,0,170,0.9))
 drop-shadow(0 0 35px rgba(150,40,255,0.8));
 }
+
 }
 
-/* ===== ANİMASYON ===== */
+/* ===== GİRİŞ ANİMASYONU ===== */
 @keyframes fadeIn{
+
 from{
 opacity:0;
 transform:translateY(30px);
 }
+
 to{
 opacity:1;
 transform:translateY(0);
 }
+
 }
 
 /* ===== MOBİL ===== */
@@ -309,6 +545,10 @@ padding:16px;
 </head>
 
 <body>
+
+<!-- ŞİMŞEKLER -->
+<div class="lightning"></div>
+<div class="lightning2"></div>
 
 <div class="container">
 
@@ -336,4 +576,3 @@ T£L£GRAM 🔥 TO ACCESS CONTENT 🔥
 
 </body>
 </html>
-```
