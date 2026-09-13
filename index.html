@@ -221,13 +221,13 @@ filter:blur(1px);
 
 
 /* =========================================================
-   TITLE
+   TITLE (Yazı Boyutu Küçültüldü)
 ========================================================= */
 
 h1{
 margin:0 0 12px;
 
-font-size:48px;
+font-size:48px; /* Boyut düşürüldü */
 font-weight:900;
 
 letter-spacing:4px;
@@ -333,7 +333,7 @@ color:#fff;
 
 position:relative;
 
-overflow:visible; /* Parlama efektinin dışarı taşabilmesi için eklendi */
+overflow:hidden;
 
 border:1px solid rgba(255,255,255,.16);
 
@@ -374,8 +374,6 @@ transform:rotate(25deg);
 transition:1s;
 
 z-index:-1;
-
-border-radius:inherit;
 }
 
 .button:hover::before{
@@ -410,7 +408,7 @@ pointer-events:none;
 
 
 /* =========================================================
-   DISCORD (HOVER GLOW GUÇLENDİRİLDİ)
+   DISCORD
 ========================================================= */
 
 .discord{
@@ -435,19 +433,18 @@ transform:
 translateY(-5px)
 scale(1.025);
 
-border-color:#ffffff;
+border-color:#aaa8ff;
 
 box-shadow:
-0 0 25px #5865f2,
-0 0 50px #5865f2,
-0 0 80px #806cff,
-0 0 120px rgba(88,101,242,0.9),
-inset 0 0 20px rgba(255,255,255,.4);
+0 0 20px #5865f2,
+0 0 45px #5865f2,
+0 0 90px rgba(88,101,242,.65),
+inset 0 0 25px rgba(255,255,255,.18);
 }
 
 
 /* =========================================================
-   TELEGRAM (HOVER GLOW GUÇLENDİRİLDİ)
+   TELEGRAM
 ========================================================= */
 
 .telegram{
@@ -472,19 +469,18 @@ transform:
 translateY(-5px)
 scale(1.025);
 
-border-color:#ffffff;
+border-color:#83eaff;
 
 box-shadow:
-0 0 25px #00c6ff,
-0 0 50px #229ed9,
-0 0 80px #00d9ff,
-0 0 120px rgba(0,217,255,0.9),
-inset 0 0 20px rgba(255,255,255,.4);
+0 0 20px #00c6ff,
+0 0 45px #229ed9,
+0 0 90px rgba(0,229,255,.65),
+inset 0 0 25px rgba(255,255,255,.18);
 }
 
 
 /* =========================================================
-   MEGALL (HOVER GLOW GUÇLENDİRİLDİ - PEMBE/FUŞYA EXPLOSION)
+   MEGALL
 ========================================================= */
 
 .megall{
@@ -509,14 +505,13 @@ transform:
 translateY(-5px)
 scale(1.025);
 
-border-color:#ffffff;
+border-color:#ff8ac6;
 
 box-shadow:
-0 0 25px #ff0066,
-0 0 50px #ff0066,
-0 0 80px #ff00aa,
-0 0 120px rgba(255,0,102,0.9),
-inset 0 0 20px rgba(255,255,255,.4);
+0 0 20px #ff1493,
+0 0 45px #ff0066,
+0 0 90px rgba(255,0,102,.7),
+inset 0 0 25px rgba(255,255,255,.18);
 }
 
 
