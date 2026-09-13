@@ -16,7 +16,7 @@
 body{
 margin:0;
 background:
-linear-gradient(rgba(5,0,15,0.72),rgba(5,0,15,0.82)),
+linear-gradient(rgba(5,0,15,0.72),rgba(5,0,15,0.84)),
 url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1920&q=90");
 background-size:cover;
 background-position:center;
@@ -28,6 +28,64 @@ justify-content:center;
 align-items:center;
 height:100vh;
 overflow:hidden;
+position:relative;
+}
+
+/* ===== YAĞMUR EFEKTİ ===== */
+body::before{
+content:"";
+position:absolute;
+inset:-100%;
+pointer-events:none;
+z-index:1;
+
+background-image:
+repeating-linear-gradient(
+105deg,
+transparent 0px,
+transparent 8px,
+rgba(255,255,255,0.10) 9px,
+rgba(255,255,255,0.10) 10px,
+transparent 11px,
+transparent 35px
+);
+
+background-size:80px 140px;
+animation:rainFall 0.55s linear infinite;
+opacity:0.45;
+}
+
+/* Daha yoğun ikinci yağmur katmanı */
+body::after{
+content:"";
+position:absolute;
+inset:-100%;
+pointer-events:none;
+z-index:2;
+
+background-image:
+repeating-linear-gradient(
+105deg,
+transparent 0px,
+transparent 18px,
+rgba(180,140,255,0.13) 19px,
+rgba(255,120,220,0.13) 20px,
+transparent 21px,
+transparent 55px
+);
+
+background-size:120px 180px;
+animation:rainFall 0.9s linear infinite;
+opacity:0.55;
+}
+
+@keyframes rainFall{
+0%{
+transform:translateY(-80px);
+}
+100%{
+transform:translateY(180px);
+}
 }
 
 /* ===== ANA KUTU ===== */
@@ -36,21 +94,41 @@ text-align:center;
 width:90%;
 max-width:420px;
 animation:fadeIn 1s ease-in-out;
+position:relative;
+z-index:5;
 }
 
 /* ===== BAŞLIK ===== */
 h1{
-font-size:48px;
+font-size:58px;
 font-weight:700;
-letter-spacing:7px;
+letter-spacing:8px;
 margin-bottom:15px;
-color:#ffffff;
+
+background:linear-gradient(
+90deg,
+#ff4fd8,
+#ff00a8,
+#c84cff,
+#8b2cff,
+#ff4fd8
+);
+
+background-size:300% 300%;
+-webkit-background-clip:text;
+background-clip:text;
+-webkit-text-fill-color:transparent;
+
 text-shadow:
-0 0 8px #ffffff,
-0 0 18px #ff2bd6,
-0 0 35px #ff2bd6,
-0 0 70px #7a2cff;
-animation:titleFlow 3s ease-in-out infinite alternate;
+0 0 5px rgba(255,255,255,0.9),
+0 0 15px rgba(255,0,170,0.8),
+0 0 30px rgba(255,0,170,0.7),
+0 0 55px rgba(170,40,255,0.8),
+0 0 90px rgba(120,0,255,0.5);
+
+animation:
+titleFlow 4s ease-in-out infinite,
+titleGlow 2.5s ease-in-out infinite alternate;
 }
 
 /* ===== ALT YAZI ===== */
@@ -171,28 +249,60 @@ background-position:0% 50%;
 }
 }
 
-/* ===== BAŞLIK FLOW ===== */
+/* ===== BAŞLIK RENK AKIŞI ===== */
 @keyframes titleFlow{
 0%{
-text-shadow:
-0 0 8px #ffffff,
-0 0 18px #ff2bd6,
-0 0 35px #ff2bd6,
-0 0 60px #7a2cff;
+background-position:0% 50%;
+}
+50%{
+background-position:100% 50%;
 }
 100%{
-text-shadow:
-0 0 8px #ffffff,
-0 0 20px #00e5ff,
-0 0 40px #00c6ff,
-0 0 75px #7a2cff;
+background-position:0% 50%;
+}
+}
+
+/* ===== BAŞLIK GLOW ===== */
+@keyframes titleGlow{
+0%{
+filter:drop-shadow(0 0 8px rgba(255,0,170,0.7));
+}
+100%{
+filter:
+drop-shadow(0 0 15px rgba(255,0,170,0.9))
+drop-shadow(0 0 35px rgba(150,40,255,0.8));
 }
 }
 
 /* ===== ANİMASYON ===== */
 @keyframes fadeIn{
-from{opacity:0;transform:translateY(30px);}
-to{opacity:1;transform:translateY(0);}
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* ===== MOBİL ===== */
+@media(max-width:500px){
+
+h1{
+font-size:43px;
+letter-spacing:5px;
+}
+
+p{
+font-size:16px;
+}
+
+.button{
+font-size:18px;
+padding:16px;
+}
+
 }
 
 </style>
@@ -203,6 +313,7 @@ to{opacity:1;transform:translateY(0);}
 <div class="container">
 
 <h1>BOP HAVEN</h1>
+
 <p>Official Links</p>
 
 <a class="button megall" href="https://link-target.net/989364/megall">
