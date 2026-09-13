@@ -7,320 +7,235 @@
 <title>BOP HAVEN</title>
 <link rel="icon" type="image/png" href="logo.jpg">
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 
 /* ===== GENEL ===== */
-body{
+*{
+box-sizing:border-box;
+}
+
+html,body{
 margin:0;
-background:
-linear-gradient(rgba(5,0,15,0.72),rgba(5,0,15,0.82)),
-url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1920&q=90");
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-color:white;
-font-family:'Rajdhani',sans-serif;
+width:100%;
+min-height:100%;
+}
+
+body{
+background:#eeeae4;
+color:#171717;
+font-family:'DM Sans',sans-serif;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
-overflow:hidden;
+padding:45px 20px;
+overflow-x:hidden;
 }
 
-/* ===== ARKAPLAN HAREKETLİ IŞIKLAR ===== */
-
+/* ===== ARKAPLAN ===== */
 body::before{
 content:"";
 position:fixed;
-inset:-20%;
-pointer-events:none;
+width:650px;
+height:650px;
+border-radius:50%;
+background:#d8c9b5;
+top:-300px;
+right:-220px;
+opacity:.55;
 z-index:0;
-
-background:
-radial-gradient(circle at 15% 25%,rgba(255,43,214,0.20) 0,transparent 7%),
-radial-gradient(circle at 80% 20%,rgba(0,229,255,0.16) 0,transparent 8%),
-radial-gradient(circle at 70% 75%,rgba(122,44,255,0.18) 0,transparent 9%),
-radial-gradient(circle at 25% 80%,rgba(0,198,255,0.12) 0,transparent 7%);
-
-filter:blur(3px);
-animation:ambientMove 14s ease-in-out infinite alternate;
 }
-
-/* ===== UÇUŞAN KÜÇÜK PARÇACIKLAR ===== */
 
 body::after{
 content:"";
 position:fixed;
-inset:0;
-pointer-events:none;
-z-index:1;
-
-background-image:
-radial-gradient(circle,rgba(255,255,255,0.75) 0 1px,transparent 2px),
-radial-gradient(circle,rgba(255,43,214,0.65) 0 1px,transparent 2px),
-radial-gradient(circle,rgba(0,229,255,0.65) 0 1.5px,transparent 2.5px),
-radial-gradient(circle,rgba(255,255,255,0.45) 0 1px,transparent 2px);
-
-background-size:
-170px 190px,
-230px 270px,
-310px 240px,
-390px 330px;
-
-background-position:
-20px 40px,
-100px 160px,
-200px 80px,
-50px 250px;
-
-animation:
-particlesMove1 18s linear infinite,
-particlesMove2 25s linear infinite,
-particlesMove3 32s linear infinite,
-particlesMove4 40s linear infinite;
-
-opacity:0.7;
+width:500px;
+height:500px;
+border-radius:50%;
+background:#c7d0cc;
+bottom:-280px;
+left:-200px;
+opacity:.5;
+z-index:0;
 }
 
-/* ===== ANA KUTU ===== */
+/* ===== ANA ALAN ===== */
 .container{
-text-align:center;
-width:90%;
-max-width:420px;
-animation:fadeIn 1s ease-in-out;
 position:relative;
-z-index:5;
+z-index:2;
+width:100%;
+max-width:620px;
+background:#f8f6f2;
+border:1px solid rgba(0,0,0,.08);
+padding:55px 55px 48px;
+box-shadow:
+0 25px 80px rgba(0,0,0,.12);
+}
+
+/* ===== ÜST ÇİZGİ ===== */
+.container::before{
+content:"";
+display:block;
+width:42px;
+height:4px;
+background:#171717;
+margin-bottom:32px;
 }
 
 /* ===== BAŞLIK ===== */
 h1{
-font-size:48px;
+font-family:'Playfair Display',serif;
+font-size:64px;
 font-weight:700;
-letter-spacing:7px;
-margin-bottom:15px;
-color:#ffffff;
-text-shadow:
-0 0 8px #ffffff,
-0 0 18px #ff2bd6,
-0 0 35px #ff2bd6,
-0 0 70px #7a2cff;
-animation:titleFlow 3s ease-in-out infinite alternate;
+letter-spacing:-2px;
+line-height:.95;
+margin:0 0 18px;
+color:#171717;
+text-shadow:none;
+animation:none;
 }
 
 /* ===== ALT YAZI ===== */
 p{
-font-size:18px;
+font-size:13px;
 font-weight:600;
-letter-spacing:3px;
-opacity:0.85;
-margin-bottom:35px;
-color:#e8dfff;
+letter-spacing:5px;
+text-transform:uppercase;
+margin:0 0 42px;
+color:#77736e;
+opacity:1;
 }
 
 /* ===== BUTON GENEL ===== */
 .button{
-display:block;
+display:flex;
+align-items:center;
+justify-content:space-between;
 width:100%;
-padding:18px;
-margin:18px 0;
-font-size:20px;
+min-height:72px;
+padding:0 22px;
+margin:12px 0;
+font-size:17px;
 font-weight:700;
-letter-spacing:1px;
-border:none;
-border-radius:14px;
+letter-spacing:.2px;
+border:1px solid #dedbd5;
+border-radius:4px;
 cursor:pointer;
-transition:all 0.3s ease;
+transition:
+transform .3s ease,
+box-shadow .3s ease,
+background .3s ease;
 text-decoration:none;
-color:white;
+color:#171717;
 position:relative;
 overflow:hidden;
+background:#ffffff;
+box-shadow:none;
 }
 
-/* ===== FLOW EFEKTİ ===== */
-.button::before{
-content:"";
-position:absolute;
-top:0;
-left:-120%;
-width:80%;
-height:100%;
-background:linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,0.35),
-transparent
-);
-transform:skewX(-25deg);
-transition:0.7s;
+/* ===== NUMARA / OK İŞARETİ ===== */
+.button::after{
+content:"↗";
+font-size:22px;
+font-weight:400;
+transition:transform .3s ease;
 }
 
-.button:hover::before{
-left:140%;
+.button:hover::after{
+transform:translate(4px,-4px);
+}
+
+/* ===== HOVER ===== */
+.button:hover{
+transform:translateX(7px);
+box-shadow:0 12px 30px rgba(0,0,0,.09);
 }
 
 /* ===== DISCORD ===== */
 .discord{
-background:linear-gradient(135deg,#7b61ff,#5865f2,#8f7aff);
-background-size:200% 200%;
-box-shadow:
-0 0 15px #5865F2,
-0 0 35px rgba(88,101,242,0.35);
-animation:gradientFlow 4s ease infinite;
+background:#ffffff;
+box-shadow:none;
 }
 
 .discord:hover{
-box-shadow:
-0 0 25px #7b61ff,
-0 0 50px #5865F2,
-0 0 80px rgba(123,97,255,0.5);
-transform:translateY(-4px) scale(1.03);
+background:#e9e7ff;
+box-shadow:0 12px 30px rgba(88,101,242,.15);
 }
 
 /* ===== TELEGRAM ===== */
 .telegram{
-background:linear-gradient(135deg,#00c6ff,#229ed9,#00e5ff);
-background-size:200% 200%;
-box-shadow:
-0 0 15px #229ED9,
-0 0 35px rgba(0,198,255,0.35);
-animation:gradientFlow 4s ease infinite;
+background:#ffffff;
+box-shadow:none;
 }
 
 .telegram:hover{
-box-shadow:
-0 0 25px #00c6ff,
-0 0 50px #229ED9,
-0 0 80px rgba(0,198,255,0.5);
-transform:translateY(-4px) scale(1.03);
+background:#e4f7fc;
+box-shadow:0 12px 30px rgba(34,158,217,.15);
 }
 
 /* ===== MEGALL ===== */
 .megall{
-background:linear-gradient(135deg,#ff008c,#ff0066,#b000ff);
-background-size:200% 200%;
-box-shadow:
-0 0 15px #ff0066,
-0 0 35px rgba(255,0,102,0.4);
-animation:gradientFlow 4s ease infinite;
+background:#ffffff;
+box-shadow:none;
 }
 
 .megall:hover{
-box-shadow:
-0 0 25px #ff1493,
-0 0 50px #ff0066,
-0 0 80px rgba(255,0,102,0.55);
-transform:translateY(-4px) scale(1.03);
+background:#ffe7f1;
+box-shadow:0 12px 30px rgba(255,0,102,.15);
 }
 
-/* ===== RENK FLOW ===== */
-@keyframes gradientFlow{
-0%{
-background-position:0% 50%;
-}
-50%{
-background-position:100% 50%;
-}
-100%{
-background-position:0% 50%;
-}
+/* ===== İÇERİK AYRACI ===== */
+.button:first-of-type{
+margin-top:0;
 }
 
-/* ===== ARKAPLAN IŞIK HAREKETİ ===== */
-@keyframes ambientMove{
-0%{
-transform:translate3d(-3%,-2%,0) scale(1);
-}
-50%{
-transform:translate3d(3%,2%,0) scale(1.08);
-}
-100%{
-transform:translate3d(-2%,4%,0) scale(1.03);
-}
+/* ===== MOBİL ===== */
+@media(max-width:600px){
+
+body{
+padding:20px 14px;
+align-items:center;
 }
 
-/* ===== PARÇACIK HAREKETLERİ ===== */
-@keyframes particlesMove1{
-0%{
-transform:translate(0,0);
-}
-25%{
-transform:translate(30px,-45px);
-}
-50%{
-transform:translate(-20px,-90px);
-}
-75%{
-transform:translate(40px,-135px);
-}
-100%{
-transform:translate(0,-180px);
-}
+.container{
+padding:40px 24px 32px;
 }
 
-@keyframes particlesMove2{
-0%{
-transform:translate(0,0);
+h1{
+font-size:48px;
+letter-spacing:-1px;
 }
-50%{
-transform:translate(-60px,-80px);
+
+p{
+font-size:11px;
+letter-spacing:4px;
+margin-bottom:32px;
 }
-100%{
-transform:translate(40px,-160px);
+
+.button{
+font-size:15px;
+min-height:68px;
+padding:0 17px;
+}
+
+}
+
+/* ===== GİRİŞ ===== */
+@keyframes appear{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
 }
 }
 
-@keyframes particlesMove3{
-0%{
-transform:translate(0,0);
-}
-33%{
-transform:translate(70px,-50px);
-}
-66%{
-transform:translate(-40px,-110px);
-}
-100%{
-transform:translate(30px,-170px);
-}
-}
-
-@keyframes particlesMove4{
-0%{
-transform:translate(0,0);
-}
-50%{
-transform:translate(-80px,-100px);
-}
-100%{
-transform:translate(20px,-200px);
-}
-}
-
-/* ===== BAŞLIK FLOW ===== */
-@keyframes titleFlow{
-0%{
-text-shadow:
-0 0 8px #ffffff,
-0 0 18px #ff2bd6,
-0 0 35px #ff2bd6,
-0 0 60px #7a2cff;
-}
-100%{
-text-shadow:
-0 0 8px #ffffff,
-0 0 20px #00e5ff,
-0 0 40px #00c6ff,
-0 0 75px #7a2cff;
-}
-}
-
-/* ===== ANİMASYON ===== */
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(30px);}
-to{opacity:1;transform:translateY(0);}
+.container{
+animation:appear .7s ease-out both;
 }
 
 </style>
@@ -331,6 +246,7 @@ to{opacity:1;transform:translateY(0);}
 <div class="container">
 
 <h1>BOP HAVEN</h1>
+
 <p>Official Links</p>
 
 <a class="button megall" href="https://link-target.net/989364/megall">
