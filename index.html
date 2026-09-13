@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>BOP HAVEN</title>
+<link rel="icon" type="image/png" href="logo.jpg">
 
 <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -15,97 +16,73 @@
 body{
 margin:0;
 background:
-linear-gradient(to bottom,rgba(5,10,20,0.25),rgba(0,15,25,0.45)),
-linear-gradient(to bottom,#071522 0%,#10283a 45%,#06344a 55%,#021923 100%);
+linear-gradient(rgba(5,0,15,0.72),rgba(5,0,15,0.82)),
+url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1920&q=90");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
 color:white;
-font-family:'Orbitron',sans-serif;
+font-family:'Rajdhani',sans-serif;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
 overflow:hidden;
-position:relative;
 }
 
-/* ===== OKYANUS ===== */
+/* ===== ARKAPLAN HAREKETLİ IŞIKLAR ===== */
+
 body::before{
 content:"";
-position:absolute;
-left:-10%;
-bottom:-8%;
-width:120%;
-height:53%;
-background:
-radial-gradient(ellipse at 50% 0%,rgba(90,220,255,0.32) 0%,transparent 42%),
-linear-gradient(to bottom,#07516c 0%,#063c54 28%,#021d2b 100%);
-border-radius:50% 50% 0 0;
-box-shadow:
-0 -15px 35px rgba(40,190,240,0.25),
-inset 0 20px 30px rgba(130,235,255,0.18);
-animation:oceanMove 7s ease-in-out infinite;
+position:fixed;
+inset:-20%;
+pointer-events:none;
 z-index:0;
+
+background:
+radial-gradient(circle at 15% 25%,rgba(255,43,214,0.20) 0,transparent 7%),
+radial-gradient(circle at 80% 20%,rgba(0,229,255,0.16) 0,transparent 8%),
+radial-gradient(circle at 70% 75%,rgba(122,44,255,0.18) 0,transparent 9%),
+radial-gradient(circle at 25% 80%,rgba(0,198,255,0.12) 0,transparent 7%);
+
+filter:blur(3px);
+animation:ambientMove 14s ease-in-out infinite alternate;
 }
 
-/* ===== BELİRGİN DALGALAR ===== */
+/* ===== UÇUŞAN KÜÇÜK PARÇACIKLAR ===== */
+
 body::after{
 content:"";
-position:absolute;
-left:-20%;
-bottom:17%;
-width:140%;
-height:30%;
-background:
-repeating-radial-gradient(
-ellipse at 50% 100%,
-transparent 0px,
-transparent 20px,
-rgba(150,240,255,0.42) 22px,
-rgba(150,240,255,0.18) 27px,
-transparent 34px
-);
-opacity:0.75;
-filter:blur(1px);
-animation:waves 5s linear infinite;
+position:fixed;
+inset:0;
+pointer-events:none;
 z-index:1;
-}
 
-/* ===== ŞİMŞEK ===== */
-.container::before{
-content:"";
-position:fixed;
-inset:0;
-background:
-linear-gradient(
-120deg,
-transparent 46%,
-rgba(255,255,255,0.95) 47%,
-rgba(190,225,255,0.8) 48%,
-transparent 49%
-),
-linear-gradient(
-72deg,
-transparent 57%,
-rgba(255,255,255,0.9) 58%,
-rgba(170,220,255,0.75) 59%,
-transparent 60%
-);
-background-size:100% 100%,100% 100%;
-opacity:0;
-pointer-events:none;
-z-index:2;
-animation:lightning 9s infinite;
-}
+background-image:
+radial-gradient(circle,rgba(255,255,255,0.75) 0 1px,transparent 2px),
+radial-gradient(circle,rgba(255,43,214,0.65) 0 1px,transparent 2px),
+radial-gradient(circle,rgba(0,229,255,0.65) 0 1.5px,transparent 2.5px),
+radial-gradient(circle,rgba(255,255,255,0.45) 0 1px,transparent 2px);
 
-/* ===== ŞİMŞEK PARLAMASI ===== */
-.container::after{
-content:"";
-position:fixed;
-inset:0;
-background:rgba(220,245,255,0.18);
-opacity:0;
-pointer-events:none;
-z-index:3;
-animation:skyFlash 9s infinite;
+background-size:
+170px 190px,
+230px 270px,
+310px 240px,
+390px 330px;
+
+background-position:
+20px 40px,
+100px 160px,
+200px 80px,
+50px 250px;
+
+animation:
+particlesMove1 18s linear infinite,
+particlesMove2 25s linear infinite,
+particlesMove3 32s linear infinite,
+particlesMove4 40s linear infinite;
+
+opacity:0.7;
 }
 
 /* ===== ANA KUTU ===== */
@@ -115,27 +92,32 @@ width:90%;
 max-width:420px;
 animation:fadeIn 1s ease-in-out;
 position:relative;
-z-index:10;
+z-index:5;
 }
 
 /* ===== BAŞLIK ===== */
 h1{
 font-size:48px;
-font-weight:900;
-letter-spacing:4px;
+font-weight:700;
+letter-spacing:7px;
 margin-bottom:15px;
-color:white;
+color:#ffffff;
 text-shadow:
-0 0 10px #ffffff,
-0 0 20px #5865F2,
-0 0 40px #5865F2;
+0 0 8px #ffffff,
+0 0 18px #ff2bd6,
+0 0 35px #ff2bd6,
+0 0 70px #7a2cff;
+animation:titleFlow 3s ease-in-out infinite alternate;
 }
 
 /* ===== ALT YAZI ===== */
 p{
 font-size:18px;
-opacity:0.75;
+font-weight:600;
+letter-spacing:3px;
+opacity:0.85;
 margin-bottom:35px;
+color:#e8dfff;
 }
 
 /* ===== BUTON GENEL ===== */
@@ -146,108 +128,192 @@ padding:18px;
 margin:18px 0;
 font-size:20px;
 font-weight:700;
+letter-spacing:1px;
 border:none;
 border-radius:14px;
 cursor:pointer;
 transition:all 0.3s ease;
 text-decoration:none;
 color:white;
+position:relative;
+overflow:hidden;
+}
+
+/* ===== FLOW EFEKTİ ===== */
+.button::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:80%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.35),
+transparent
+);
+transform:skewX(-25deg);
+transition:0.7s;
+}
+
+.button:hover::before{
+left:140%;
 }
 
 /* ===== DISCORD ===== */
 .discord{
-background:#5865F2;
-box-shadow:0 0 15px #5865F2;
+background:linear-gradient(135deg,#7b61ff,#5865f2,#8f7aff);
+background-size:200% 200%;
+box-shadow:
+0 0 15px #5865F2,
+0 0 35px rgba(88,101,242,0.35);
+animation:gradientFlow 4s ease infinite;
 }
+
 .discord:hover{
-box-shadow:0 0 30px #5865F2,0 0 60px #5865F2;
+box-shadow:
+0 0 25px #7b61ff,
+0 0 50px #5865F2,
+0 0 80px rgba(123,97,255,0.5);
 transform:translateY(-4px) scale(1.03);
 }
 
 /* ===== TELEGRAM ===== */
 .telegram{
-background:#229ED9;
-box-shadow:0 0 15px #229ED9;
+background:linear-gradient(135deg,#00c6ff,#229ed9,#00e5ff);
+background-size:200% 200%;
+box-shadow:
+0 0 15px #229ED9,
+0 0 35px rgba(0,198,255,0.35);
+animation:gradientFlow 4s ease infinite;
 }
+
 .telegram:hover{
-box-shadow:0 0 30px #229ED9,0 0 60px #229ED9;
+box-shadow:
+0 0 25px #00c6ff,
+0 0 50px #229ED9,
+0 0 80px rgba(0,198,255,0.5);
 transform:translateY(-4px) scale(1.03);
 }
 
 /* ===== MEGALL ===== */
 .megall{
-background:#ff0066;
-box-shadow:0 0 15px #ff0066;
+background:linear-gradient(135deg,#ff008c,#ff0066,#b000ff);
+background-size:200% 200%;
+box-shadow:
+0 0 15px #ff0066,
+0 0 35px rgba(255,0,102,0.4);
+animation:gradientFlow 4s ease infinite;
 }
+
 .megall:hover{
-box-shadow:0 0 30px #ff0066,0 0 60px #ff0066;
+box-shadow:
+0 0 25px #ff1493,
+0 0 50px #ff0066,
+0 0 80px rgba(255,0,102,0.55);
 transform:translateY(-4px) scale(1.03);
 }
 
-/* ===== OKYANUS HAREKETİ ===== */
-@keyframes oceanMove{
-0%,100%{
-transform:translateX(0) scaleY(1);
-}
-50%{
-transform:translateX(-2%) scaleY(1.04);
-}
-}
-
-/* ===== DALGA HAREKETİ ===== */
-@keyframes waves{
+/* ===== RENK FLOW ===== */
+@keyframes gradientFlow{
 0%{
-transform:translateX(0) translateY(0);
+background-position:0% 50%;
 }
 50%{
-transform:translateX(-4%) translateY(-10px);
+background-position:100% 50%;
 }
 100%{
-transform:translateX(0) translateY(0);
+background-position:0% 50%;
 }
 }
 
-/* ===== GERÇEKÇİ ŞİMŞEK ÇAKMASI ===== */
-@keyframes lightning{
-0%,86%,100%{
-opacity:0;
+/* ===== ARKAPLAN IŞIK HAREKETİ ===== */
+@keyframes ambientMove{
+0%{
+transform:translate3d(-3%,-2%,0) scale(1);
 }
-87%{
-opacity:0.05;
+50%{
+transform:translate3d(3%,2%,0) scale(1.08);
 }
-87.5%{
-opacity:0.95;
-}
-88%{
-opacity:0.08;
-}
-88.4%{
-opacity:0.75;
-}
-89%{
-opacity:0;
+100%{
+transform:translate3d(-2%,4%,0) scale(1.03);
 }
 }
 
-/* ===== GÖKYÜZÜ PARLAMASI ===== */
-@keyframes skyFlash{
-0%,86%,100%{
-opacity:0;
+/* ===== PARÇACIK HAREKETLERİ ===== */
+@keyframes particlesMove1{
+0%{
+transform:translate(0,0);
 }
-87.3%{
-opacity:0.05;
+25%{
+transform:translate(30px,-45px);
 }
-87.5%{
-opacity:0.65;
+50%{
+transform:translate(-20px,-90px);
 }
-88%{
-opacity:0.08;
+75%{
+transform:translate(40px,-135px);
 }
-88.5%{
-opacity:0.42;
+100%{
+transform:translate(0,-180px);
 }
-89%{
-opacity:0;
+}
+
+@keyframes particlesMove2{
+0%{
+transform:translate(0,0);
+}
+50%{
+transform:translate(-60px,-80px);
+}
+100%{
+transform:translate(40px,-160px);
+}
+}
+
+@keyframes particlesMove3{
+0%{
+transform:translate(0,0);
+}
+33%{
+transform:translate(70px,-50px);
+}
+66%{
+transform:translate(-40px,-110px);
+}
+100%{
+transform:translate(30px,-170px);
+}
+}
+
+@keyframes particlesMove4{
+0%{
+transform:translate(0,0);
+}
+50%{
+transform:translate(-80px,-100px);
+}
+100%{
+transform:translate(20px,-200px);
+}
+}
+
+/* ===== BAŞLIK FLOW ===== */
+@keyframes titleFlow{
+0%{
+text-shadow:
+0 0 8px #ffffff,
+0 0 18px #ff2bd6,
+0 0 35px #ff2bd6,
+0 0 60px #7a2cff;
+}
+100%{
+text-shadow:
+0 0 8px #ffffff,
+0 0 20px #00e5ff,
+0 0 40px #00c6ff,
+0 0 75px #7a2cff;
 }
 }
 
@@ -268,19 +334,19 @@ to{opacity:1;transform:translateY(0);}
 <p>Official Links</p>
 
 <a class="button megall" href="https://link-target.net/989364/megall">
-🥵 +600 FULL L£AKS C0LL€CTION 🥵
+🥵 +600 M0DELS FULL L£AKS C0LL€CTION 🥵
 </a>
 
-<a class="button discord" href="https://discord.gg/qGp4u9yrq7">
+<a class="button discord" href="https://discord.gg/BfENsFPD5G">
 D!SC0RD 💋 TO ACCESS CONTENT!💋
 </a>
 
-<a class="button telegram" href="https://t.me/+uAUhExWvjblmNzY0">
+<a class="button telegram" href="https://t.me/+kjYAJ1xI0DYwNzJl">
 T£L£GRAM 🔥 TO ACCESS CONTENT 🔥
 </a>
 
-<a class="button telegram" href="https://t.me/+kjYAJ1xI0DYwNzJl">
-BACKUP TELEGRAM
+<a class="button telegram" href="https://t.me/+GjbWe6Z1P2k4YTI0">
+🫦 PREMIUM ACCESS — 100% AD-FREE TELEGRAM! 🫦
 </a>
 
 </div>
